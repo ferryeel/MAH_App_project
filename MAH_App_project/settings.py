@@ -40,13 +40,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
-   
+   'graphene_django',
     'django_celery_beat',
 
     'MAH_App',
 ]
 
-INSTALLED_APPS += ['graphene_django']
+
 
 GRAPHENE = {
     'SCHEMA': 'MAH_App.schema.schema'
@@ -57,6 +57,9 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
     ],
 }
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
